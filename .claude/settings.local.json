@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx *)",
+      "Bash(mkdir -p public/avcf/photos public/avcf/logos public/avcf/team)",
+      "Bash(cp /Users/alexvirdee/.claude/projects/-Users-alexvirdee-Desktop-alexdev-next-avcf-v3/e19adbaf-80c2-4863-9f23-0a90fbd2a86b/tool-results/design-extract/avcf-design-system/project/assets/photos/*.jpg public/avcf/photos/)",
+      "Bash(cp /Users/alexvirdee/.claude/projects/-Users-alexvirdee-Desktop-alexdev-next-avcf-v3/e19adbaf-80c2-4863-9f23-0a90fbd2a86b/tool-results/design-extract/avcf-design-system/project/assets/logos/virdee-logo-copy.png public/avcf/logos/avcf-logo.png)",
+      "Bash(cp AVCF-Legacy/images/details.jpg AVCF-Legacy/images/donorhappy.jpg public/avcf/photos/)",
+      "Bash(cp AVCF-Legacy/images/lindsay.jpg AVCF-Legacy/images/aleena.jpg AVCF-Legacy/images/andrew.png AVCF-Legacy/images/oscar.jpg AVCF-Legacy/images/alex.jpg AVCF-Legacy/images/tim.jpg AVCF-Legacy/images/sat.jpg AVCF-Legacy/images/harj.jpg public/avcf/team/)",
+      "Bash(sips -g pixelWidth -g pixelHeight public/avcf/photos/*.jpg public/avcf/logos/avcf-logo.png)",
+      "Bash(awk '{print $1, $3, $5}')",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"/: %{http_code}\\\\n\" http://localhost:3210/)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3000/donate)",
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(mkdir -p design-extract-2)",
+      "Bash(tar -xzf webfetch-1781289189916-lv38l0.bin -C design-extract-2)"
+    ]
+  }
+}

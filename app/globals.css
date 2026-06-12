@@ -1,0 +1,187 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   AVCF Design System — tokens
+   Growth Green primary · Hope Blue secondary · Warm Gold accent
+   Soft Coral care · Warm Ivory canvas
+   ============================================================ */
+
+@theme inline {
+  /* shadcn semantic mapping */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Brand palette — Growth Green (primary, carries the AVCF logo) */
+  --color-green-50: #effdf4;
+  --color-green-100: #d8f9e3;
+  --color-green-200: #b2f1c9;
+  --color-green-300: #7ee5a6;
+  --color-green-400: #44d07c;
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+  --color-green-700: #15803d;
+  --color-green-800: #166534;
+  --color-green-900: #14532d;
+  --color-green-950: #0a2c18;
+
+  /* Hope Blue (secondary) */
+  --color-blue-50: #eff5ff;
+  --color-blue-100: #dbe8fe;
+  --color-blue-200: #bfd6fe;
+  --color-blue-300: #93b8fd;
+  --color-blue-400: #6090fa;
+  --color-blue-500: #2563eb;
+  --color-blue-600: #1d4ed8;
+  --color-blue-700: #1e40af;
+  --color-blue-800: #1e3a8a;
+  --color-blue-900: #172554;
+
+  /* Warm Gold (accent) */
+  --color-gold-50: #fffaeb;
+  --color-gold-100: #fef0c7;
+  --color-gold-200: #fedf89;
+  --color-gold-300: #fec84b;
+  --color-gold-400: #fbb022;
+  --color-gold-500: #f59e0b;
+  --color-gold-600: #dc8004;
+  --color-gold-700: #b65d06;
+  --color-gold-800: #93480c;
+  --color-gold-900: #7a3c0e;
+
+  /* Soft Coral (compassion / care) */
+  --color-coral-50: #fff1f3;
+  --color-coral-100: #ffe1e6;
+  --color-coral-200: #ffc9d2;
+  --color-coral-300: #fea3b4;
+  --color-coral-400: #fb7185;
+  --color-coral-500: #f43f63;
+  --color-coral-600: #e11d52;
+  --color-coral-700: #be1245;
+  --color-coral-800: #9f1240;
+  --color-coral-900: #88133d;
+
+  /* Warm Ivory canvas + ink */
+  --color-ivory: #fafaf7;
+  --color-ivory-deep: #f4f3ec;
+  --color-ink: #1e293b;
+
+  /* Type */
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  /* Radii — generous and soft */
+  --radius-sm: 10px;
+  --radius-md: 14px; /* inputs, small cards */
+  --radius-lg: 20px; /* cards */
+  --radius-xl: 28px; /* feature cards, media */
+  --radius-2xl: 40px; /* hero / large panels */
+  --radius-3xl: 40px;
+  --radius-4xl: 48px;
+
+  /* Shadows — soft, low-contrast, warm-tinted */
+  --shadow-xs: 0 1px 2px rgba(30, 41, 59, 0.06);
+  --shadow-sm: 0 2px 6px rgba(30, 41, 59, 0.07);
+  --shadow-md: 0 8px 20px -6px rgba(30, 41, 59, 0.12);
+  --shadow-lg: 0 18px 40px -12px rgba(30, 41, 59, 0.16);
+  --shadow-xl: 0 30px 64px -20px rgba(30, 41, 59, 0.22);
+  --shadow-green: 0 18px 40px -12px rgba(34, 197, 94, 0.3);
+
+  /* Motion — gentle, uplifting, never bouncy */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  --background: #fafaf7; /* Warm Ivory */
+  --foreground: #334155; /* Slate body text */
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  --popover: #ffffff;
+  --popover-foreground: #1e293b;
+  --primary: #16a34a; /* Growth Green (600 for contrast on white text) */
+  --primary-foreground: #ffffff;
+  --secondary: #eff5ff; /* Hope Blue soft */
+  --secondary-foreground: #1d4ed8;
+  --muted: #f4f3ec; /* deeper ivory */
+  --muted-foreground: #64748b; /* Stone */
+  --accent: #effdf4;
+  --accent-foreground: #15803d;
+  --destructive: #e11d52;
+  --border: #e2e8f0;
+  --input: #cbd5e1;
+  --ring: #b2f1c9; /* green-200 focus halo */
+  --chart-1: #22c55e;
+  --chart-2: #2563eb;
+  --chart-3: #f59e0b;
+  --chart-4: #fb7185;
+  --chart-5: #64748b;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #334155;
+  --sidebar-primary: #16a34a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #effdf4;
+  --sidebar-accent-foreground: #15803d;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #b2f1c9;
+  --radius: 14px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-bold tracking-tight text-ink;
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  /* Eyebrow / overline label above section titles */
+  .eyebrow {
+    @apply font-sans text-sm font-semibold uppercase tracking-[0.12em];
+  }
+}
