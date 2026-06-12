@@ -15,7 +15,8 @@
       "Bash(curl -s http://localhost:3000/donate)",
       "WebFetch(domain:api.anthropic.com)",
       "Bash(mkdir -p design-extract-2)",
-      "Bash(tar -xzf webfetch-1781289189916-lv38l0.bin -C design-extract-2)"
+      "Bash(tar -xzf webfetch-1781289189916-lv38l0.bin -C design-extract-2)",
+      "Bash(git add *)"
     ]
   }
 }
