@@ -25,7 +25,7 @@ const trustPoints = [
     icon: Lock,
     title: "Secure & private",
     description:
-      "Payments will be processed by a trusted provider. We never store card details ourselves.",
+      "Payments are processed securely by Stripe. We never see or store your card details.",
   },
   {
     icon: Sparkles,

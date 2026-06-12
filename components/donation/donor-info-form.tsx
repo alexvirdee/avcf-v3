@@ -7,19 +7,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import { DONATION_DESIGNATIONS } from "@/lib/constants";
 
 /**
- * Donor information fields — UI only.
- * TODO(donations): wire these values into the payment provider's customer /
- * metadata fields (Stripe Checkout `customer_email`, Donorbox donor info, etc).
+ * Donor information fields. Name and message are optional — Stripe Checkout
+ * collects payment details and a verified email on its own page.
  */
 export function DonorInfoForm() {
   return (
     <div className="space-y-5">
       <div className="space-y-2">
         <Label htmlFor="designation">Designation</Label>
-        <Select defaultValue={DONATION_DESIGNATIONS[0]}>
+        <Select name="designation" defaultValue={DONATION_DESIGNATIONS[0]}>
           <SelectTrigger id="designation" className="w-full rounded-md">
             <SelectValue />
           </SelectTrigger>
@@ -35,24 +35,42 @@ export function DonorInfoForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="first-name">First name</Label>
-          <Input id="first-name" name="firstName" autoComplete="given-name" placeholder="Jane" required />
+          <Label htmlFor="donor-name">
+            Name{" "}
+            <span className="font-normal text-muted-foreground">(optional)</span>
+          </Label>
+          <Input
+            id="donor-name"
+            name="donorName"
+            autoComplete="name"
+            placeholder="Jane Doe"
+          />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="last-name">Last name</Label>
-          <Input id="last-name" name="lastName" autoComplete="family-name" placeholder="Doe" required />
+          <Label htmlFor="donor-email">
+            Email{" "}
+            <span className="font-normal text-muted-foreground">(optional)</span>
+          </Label>
+          <Input
+            id="donor-email"
+            name="donorEmail"
+            type="email"
+            autoComplete="email"
+            placeholder="jane@email.com"
+          />
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="donor-email">Email</Label>
-        <Input
-          id="donor-email"
-          name="email"
-          type="email"
-          autoComplete="email"
-          placeholder="jane@email.com"
-          required
+        <Label htmlFor="donor-message">
+          Message of support{" "}
+          <span className="font-normal text-muted-foreground">(optional)</span>
+        </Label>
+        <Textarea
+          id="donor-message"
+          name="message"
+          rows={2}
+          placeholder="In memory of…, with love from…"
         />
       </div>
     </div>
